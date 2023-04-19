@@ -1,5 +1,7 @@
 import pytest
 from selene import browser
+from selene.support.shared import browser
+
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_managament():
