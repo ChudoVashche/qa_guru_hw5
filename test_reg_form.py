@@ -1,11 +1,8 @@
-from selene import browser
+from selene import browser, os, have, be
 
 
 def test_reg_form():
-    browser.config.driver_name = 'chrome'
-    browser.config.window_width = 1200
-    browser.config.window_height = 900
-    browser.config.base_url = 'https://demoqa.com'
+
 
     # open
     browser.open('/automation-practice-form')
@@ -19,7 +16,7 @@ def test_reg_form():
 
     #gender
     browser.element('#gender-radio-2').double_click()
-    browser.element('#userNumber').type('+79845632245')
+    browser.element('#userNumber').type('8945632145')
 
     # date of birth
     browser.element('#dateOfBirthInput').click()
@@ -33,8 +30,17 @@ def test_reg_form():
 
     # address
     browser.element('#currentAddress').type('Rajpath 17')
-    browser.element('#state').click().press_enter()
-    browser.element('#city').click().press_enter()
+    browser.element('#state').click()
+    browser.element('#react-select-3-option-0').click()
+    browser.element('#city').click()
+    browser.element('#react-select-4-option-0').click()
+
+    # picture
+    browser.element('#uploadPicture').send_keys(os.getcwd() + "/pict.jpg ")
+
+    # submit
+    browser.element('#submit').click()
+    ...
 
     ...
 
