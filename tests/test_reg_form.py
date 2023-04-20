@@ -1,4 +1,4 @@
-from selene import browser
+from selene import browser, have
 import os
 from selene.support.shared import browser
 
@@ -40,13 +40,23 @@ def test_reg_form():
 
 
     # resources
-     # browser.element('#uploadPicture').send_keys(os.getcwd() + "/pict.jpg ")
+   # browser.element('#uploadPicture').send_keys(os.getcwd() + "/pict.jpg ")
+   # browser.element('#uploadPicture').send_keys(os.path.abspath("./tests/resources/pict.jpg"))
 
-   browser.element('#uploadPicture').send_keys(os.path.abspath(".\tests\resources\pict.jpg"))
+   #browser.element('#uploadPicture').send_keys(os.path.abspath(".\tests\resources\pict.jpg"))
 
     # submit
     browser.element('#submit').click()
 
+   # must have
+    browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
+    browser.all('tbody tr').should(have.exact_texts('Student Name Mashka Koshka', 'Student Email koshka-mashka@mail.ru',
+                                                    'Gender Female', 'Mobile 8945632145',
+                                                    'Date of Birth 31 December,1999',
+                                                    'Subjects History', 'Hobbies Reading',
+                                                    'Picture pict.jpg',
+                                                    'Address Rajpath 17',
+                                                    'State and City NCR Delhi'))
 
 
 
