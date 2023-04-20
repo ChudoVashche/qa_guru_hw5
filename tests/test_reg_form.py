@@ -40,7 +40,7 @@ def test_reg_form():
 
 
     # resources
-   # browser.element('#uploadPicture').send_keys(os.getcwd() + "/pict.jpg ")
+    # browser.element('#uploadPicture').send_keys(os.getcwd() + "/pict.jpg ")
    # browser.element('#uploadPicture').send_keys(os.path.abspath("./tests/resources/pict.jpg"))
 
    #browser.element('#uploadPicture').send_keys(os.path.abspath(".\tests\resources\pict.jpg"))
@@ -54,9 +54,10 @@ def test_reg_form():
                                                     'Gender Female', 'Mobile 8945632145',
                                                     'Date of Birth 31 December,1999',
                                                     'Subjects History', 'Hobbies Reading',
-                                                    'Picture pict.jpg',
+                                                    'Picture',
                                                     'Address Rajpath 17',
                                                     'State and City NCR Delhi'))
+    ...
 
 
 
